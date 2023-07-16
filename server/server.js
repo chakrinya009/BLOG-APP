@@ -29,7 +29,7 @@ connectDB();
 
 app.use("/users", userRoute);
 
-app.get("/", (req, res) => {
+app.get("/api/home", (req, res) => {
   res.send("home page");
 });
 
