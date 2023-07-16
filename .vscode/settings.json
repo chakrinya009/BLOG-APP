@@ -1,0 +1,12 @@
+{
+  "files.eol": "\r\n",
+  "[css]": {
+    "editor.tabSize": 2
+  },
+  "editor.rulers": [80],
+  "prettier.configPath": ".prettierrc.js",
+  "prettier.requireConfig": true,
+  "files.associations": {
+    "LICENSE": "plaintext"
+  }
+}
