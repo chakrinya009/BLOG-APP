@@ -46,6 +46,10 @@ const Login = () => {
    account==='signup' ?toggleAccount('login'):toggleAccount('signup')
   }
 
+  const onInputChange=()=>{
+    
+  }
+
   return (
     <Component>
       <Image src="blog.png" alt="" />
@@ -61,9 +65,21 @@ const Login = () => {
         </Wrapper>
       ) : (
         <Wrapper>
-          <TextField variant="standard" label="Enter Name" />
-          <TextField variant="standard" label="Enter username" />
-          <TextField variant="standard" label="Enter password" />
+          <TextField
+            variant="standard"
+            onChange={() => onInputChange()}
+            label="Enter Name"
+          />
+          <TextField
+            variant="standard"
+            onChange={() => onInputChange()}
+            label="Enter username"
+          />
+          <TextField
+            variant="standard"
+            onChange={() => onInputChange()}
+            label="Enter password"
+          />
           <SignupButton variant="contained">Signup</SignupButton>
           <Text style={{ textAlign: "center" }}>OR</Text>
           <LoginButton onClick={() => toggelSignup()}>

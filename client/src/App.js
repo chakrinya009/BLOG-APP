@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div style={{marginTop:64}}>
       <Login />
-    </div>
+    </div> 
   );
 };
 
