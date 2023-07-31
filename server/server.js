@@ -3,7 +3,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const connectDB = require("./db");
 const User = require("./models/User.js");
-const userRoute = require("./routes/users");
+const userRoute = require("./routes/route");
 
 //intialise app with express
 

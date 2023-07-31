@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import { API } from "../../service/api";
 
 const Component = styled(Box)`
   width: 400px;
@@ -38,17 +39,30 @@ const Text = styled(Typography)`
   color: #878787;
   margin-top: 15px;
 `;
+const signupInitialValue = {
+  name: "",
+  username: "",
+  password: "",
+};
 
 const Login = () => {
   const [account, toggleAccount] = useState("login");
 
-  const toggelSignup=()=>{
-   account==='signup' ?toggleAccount('login'):toggleAccount('signup')
-  }
+  const [signup, setsignup] = useState(signupInitialValue);
 
-  const onInputChange=()=>{
-    
-  }
+  const toggelSignup = () => {
+    account === "signup" ? toggleAccount("login") : toggleAccount("signup");
+  };
+
+  const onInputChange = (e) => {
+    setsignup({ ...signup, [e.target.name]: e.target.value });
+    console.log(signup);
+  };
+
+  const signupuser = async () => {
+    let response = await API.userSignup(signup);
+    console.log(response);
+  };
 
   return (
     <Component>
@@ -67,20 +81,30 @@ const Login = () => {
         <Wrapper>
           <TextField
             variant="standard"
-            onChange={() => onInputChange()}
+            name="name"
+            onChange={(e) => onInputChange(e)}
             label="Enter Name"
           />
           <TextField
             variant="standard"
-            onChange={() => onInputChange()}
+            name="username"
+            onChange={(e) => onInputChange(e)}
             label="Enter username"
           />
           <TextField
             variant="standard"
-            onChange={() => onInputChange()}
+            name="password"
+            onChange={(e) => onInputChange(e)}
             label="Enter password"
           />
-          <SignupButton variant="contained">Signup</SignupButton>
+          <SignupButton
+            onClick={() => {
+              signupuser();
+            }}
+            variant="contained"
+          >
+            Signup
+          </SignupButton>
           <Text style={{ textAlign: "center" }}>OR</Text>
           <LoginButton onClick={() => toggelSignup()}>
             Already have an account
